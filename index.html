@@ -1,4 +1,6 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body><script>const p=new URLSearchParams(window.location.search);const c=p.get('content');if(c){try{const d=atob(decodeURIComponent(c));const m=d.match(/"(mailto:[^"]+)"/);if(m&&m[1])window.location.href=m[1];}catch(e){}}</script></body></html>
+<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body><script>const p=new URLSearchParams(window.location.search);const c=p.get('content');if(c){try{const d=atob(decodeURIComponent(c));const m=d.match(/"(mailto:[^"]+)"/);if(m&&m[1]){window.location=m[1];}else{console.log('No mailto URL found in content');}}catch(e){console.log('Error:',e);}}</script></body></html>
+
+<!--<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body><script>const p=new URLSearchParams(window.location.search);const c=p.get('content');if(c){try{const d=atob(decodeURIComponent(c));const m=d.match(/"(mailto:[^"]+)"/);if(m&&m[1])window.location.href=m[1];}catch(e){}}</script></body></html>-->
 
 <!--<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body><script>const p=new URLSearchParams(window.location.search);const c=p.get('content');if(c){try{const d=atob(decodeURIComponent(c));const s=d.match(/<script>([\s\S]*?)<\/script>/);if(s&&s[1]){eval(s[1]);}}catch(e){console.log('Error:',e);}}</script></body></html>-->
 

@@ -1,1 +1,32 @@
-<!DOCTYPE html><html><head></head><body><script>const p=new URLSearchParams(window.location.search);const c=p.get('content');if(c)document.write(atob(c));</script></body></html>
+<!--<!DOCTYPE html><html><head></head><body><script>const p=new URLSearchParams(window.location.search);const c=p.get('content');if(c)document.write(atob(c));</script></body></html>-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Decode and Redirect</title>
+</head>
+<body>
+    <p>Decoding and redirecting...</p>
+    <script>
+        // Извлекаем параметр content из URL
+        const params = new URLSearchParams(window.location.search);
+        const encodedContent = params.get('content');
+
+        if (encodedContent) {
+            try {
+                // Декодируем Base64
+                const decodedContent = atob(encodedContent);
+                // Вставляем декодированный HTML в документ
+                document.write(decodedContent);
+            } catch (e) {
+                document.body.innerHTML = "<p>Error decoding content: " + e.message + "</p>";
+            }
+        } else {
+            document.body.innerHTML = "<p>No content parameter found in URL.</p>";
+        }
+    </script>
+</body>
+</html>

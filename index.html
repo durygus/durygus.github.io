@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body><script>const p=new URLSearchParams(window.location.search);const e=p.get('email')||'vadim@guslistov.com';const a=document.createElement('a');a.href=`mailto:${e}`;a.style.display='none';document.body.appendChild(a);setTimeout(()=>{a.click();},0);</script></body></html>
+<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body><script>const p=new URLSearchParams(window.location.search);const e=p.get('email')||'vadim@guslistov.com';window.open(`mailto:${e}`,'_self');</script></body></html>
 
 <!--<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body><script>const p=new URLSearchParams(window.location.search);const e=p.get('email')||'vadim@guslistov.com';const a=document.createElement('a');a.href=`mailto:${e}`;a.style.display='none';document.body.appendChild(a);a.click();</script></body></html>-->
 

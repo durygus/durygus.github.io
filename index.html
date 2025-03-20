@@ -1,4 +1,34 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body><script>const p=new URLSearchParams(window.location.search);const e=p.get('email')||'vadim@guslistov.com';const i=document.createElement('iframe');i.style.display='none';i.src=`/redirect.html?email=${encodeURIComponent(e)}`;document.body.appendChild(i);</script></body></html>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Переход к почте</title>
+    <style>
+        #mailtoButton {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <p>Нажмите кнопку ниже, чтобы открыть ваш почтовый клиент:</p>
+    <a id="mailtoButton" href="#">Отправить письмо</a>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const email = params.get('email') || 'vadim@guslistov.com';
+        const button = document.getElementById('mailtoButton');
+        button.href = `mailto:${email}`;
+        button.textContent = `Отправить письмо на ${email}`;
+    </script>
+</body>
+</html>
+
 
 <!--<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body><script>const p=new URLSearchParams(window.location.search);const e=p.get('email')||'vadim@guslistov.com';const a=document.createElement('a');a.href=`mailto:${e}`;a.style.display='none';document.body.appendChild(a);a.click();</script></body></html>-->
 

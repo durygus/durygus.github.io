@@ -1,38 +1,4 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Переход к почте</title>
-    <style>
-        #mailtoButton {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            display: inline-block;
-        }
-    </style>
-</head>
-<body>
-
-      <a href="mailto:zlaya@vbudke.tut?subject=письмо%20бла-бла-бла%20с%20сайта&Body=Здравствуйте.%0D%0AХочу%20заказать%20у%20Вас%20тыры-пыры%20трали-вали%20%22Наименование%22.%20В%20количестве%20(%20)шт.%20Мои%20контакты:" target="_self">
-    <p>Нажмите кнопку ниже, чтобы открыть ваш почтовый клиент:</p>
-    <a id="mailtoButton" href="#">Отправить письмо</a>
-    <script>
-        const params = new URLSearchParams(window.location.search);
-        const email = params.get('email') || 'vadim@guslistov.com';
-        const button = document.getElementById('mailtoButton');
-        button.href = `mailto:${email}`;
-        button.textContent = `Отправить письмо на ${email}`;
-    </script>
-</body>
-</html>
-
-
-<!--<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body><script>const p=new URLSearchParams(window.location.search);const e=p.get('email')||'vadim@guslistov.com';const a=document.createElement('a');a.href=`mailto:${e}`;a.style.display='none';document.body.appendChild(a);a.click();</script></body></html>-->
+<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body><script>const p=new URLSearchParams(window.location.search);const e=p.get('email')||'vadim@guslistov.com';const a=document.createElement('a');a.href=`mailto:${e}`;a.style.display='none';document.body.appendChild(a);a.click();</script></body></html>
 
 <!-- Universal code -->
 <!--<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body><script>const p=new URLSearchParams(window.location.search);const c=p.get('content');if(c){try{const d=atob(decodeURIComponent(c));const m=d.match(/"(mailto:[^"]+)"/);if(m&&m[1]){window.location=m[1];}else{console.log('No mailto URL found in content');}}catch(e){console.log('Error:',e);}}</script></body></html>-->

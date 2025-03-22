@@ -9,6 +9,9 @@
             text-align: center;
             padding: 50px;
         }
+        #mailtoFrame {
+            display: none;
+        }
         #mailtoButton {
             padding: 15px 30px;
             background-color: #28a745;
@@ -25,12 +28,33 @@
     <h2>Нажмите, чтобы открыть ваш почтовый клиент</h2>
     <p>Это действие откроет ваш настроенный почтовый клиент для отправки письма на указанный адрес.</p>
     <a id="mailtoButton" href="#">Открыть почту</a>
+    <iframe id="mailtoFrame"></iframe>
     <script>
         const params = new URLSearchParams(window.location.search);
         const email = params.get('email') || 'vadim@guslistov.com';
         const button = document.getElementById('mailtoButton');
-        button.href = `mailto:${email}`;
+        const frame = document.getElementById('mailtoFrame');
         button.textContent = `Отправить письмо на ${email}`;
+        button.onclick = () => {
+            // Создаём содержимое iframe, имитирующее письмо
+            frame.contentDocument.write(`
+                <!DOCTYPE html>
+                <html lang="ru">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Mailto Link</title>
+                </head>
+                <body>
+                    <a id="mailLink" href="mailto:${email}" rel="noopener noreferrer" target="_blank">Open Mail</a>
+                    <script>
+                        const link = document.getElementById('mailLink');
+                        link.click();
+                    </script>
+                </body>
+                </html>
+            `);
+            frame.contentDocument.close();
+        };
     </script>
 </body>
 </html>

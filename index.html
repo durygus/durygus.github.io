@@ -29,28 +29,8 @@
         const params = new URLSearchParams(window.location.search);
         const email = params.get('email') || 'vadim@guslistov.com';
         const button = document.getElementById('mailtoButton');
+        button.href = `mailto:${email}`;
         button.textContent = `Отправить письмо на ${email}`;
-        button.onclick = () => {
-            // Открываем новую вкладку с чистой страницей
-            const newWindow = window.open('', '_blank');
-            newWindow.document.write(`
-                <!DOCTYPE html>
-                <html>
-                <head>
-                    <meta charset="UTF-8">
-                    <title>Redirecting...</title>
-                </head>
-                <body>
-                    <a id="mailLink" href="mailto:${email}" style="display:none;">Open Mail</a>
-                    <script>
-                        const link = document.getElementById('mailLink');
-                        link.click();
-                    </script>
-                </body>
-                </html>
-            `);
-            newWindow.document.close();
-        };
     </script>
 </body>
 </html>

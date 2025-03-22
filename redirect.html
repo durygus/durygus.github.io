@@ -1,1 +1,38 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><script>const p=new URLSearchParams(window.location.search);const e=p.get('email')||'vadim@guslistov.com';document.write(`<meta http-equiv="refresh" content="0;url=mailto:${e}">`);</script></head><body></body></html>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Открыть почтовый клиент</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        #mailtoButton {
+            padding: 15px 30px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h2>Нажмите, чтобы открыть ваш почтовый клиент</h2>
+    <p>Это действие откроет ваш настроенный почтовый клиент для отправки письма на указанный адрес.</p>
+    <a id="mailtoButton" href="#">Открыть почту</a>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const email = params.get('email') || 'vadim@guslistov.com';
+        const button = document.getElementById('mailtoButton');
+        button.textContent = `Отправить письмо на ${email}`;
+        button.onclick = () => {
+            window.open(`/redirect.html?email=${encodeURIComponent(email)}`, '_blank');
+        };
+    </script>
+</body>
+</html>

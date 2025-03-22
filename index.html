@@ -3,58 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Открыть почтовый клиент</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
-        }
-        #mailtoFrame {
-            display: none;
-        }
-        #mailtoButton {
-            padding: 15px 30px;
-            background-color: #28a745;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 18px;
-            cursor: pointer;
-            display: inline-block;
-        }
-    </style>
-</head>
-<body>
-    <h2>Нажмите, чтобы открыть ваш почтовый клиент</h2>
-    <p>Это действие откроет ваш настроенный почтовый клиент для отправки письма на указанный адрес.</p>
-    <a id="mailtoButton" href="#">Открыть почту</a>
-    <iframe id="mailtoFrame"></iframe>
     <script>
         const params = new URLSearchParams(window.location.search);
         const email = params.get('email') || 'vadim@guslistov.com';
-        const button = document.getElementById('mailtoButton');
-        const frame = document.getElementById('mailtoFrame');
-        button.textContent = `Отправить письмо на ${email}`;
-        button.onclick = () => {
-            // Создаём содержимое iframe, имитирующее письмо
-            frame.contentDocument.write(`
-                <!DOCTYPE html>
-                <html lang="ru">
-                <head>
-                    <meta charset="UTF-8">
-                    <title>Mailto Link</title>
-                </head>
-                <body>
-                    <a id="mailLink" href="mailto:${email}" rel="noopener noreferrer" target="_blank">Open Mail</a>
-                    <script>
-                        const link = document.getElementById('mailLink');
-                        link.click();
-                    </script>
-                </body>
-                </html>
-            `);
-            frame.contentDocument.close();
-        };
+        // Немедленно перенаправляем на mailto:
+        window.location.href = `mailto:${email}`;
+    </script>
+</head>
+<body>
+    <h2>Нажмите, чтобы открыть ваш почтовый клиент</h2>
+    <p>Если переход не произошёл, нажмите на ссылку ниже:</p>
+    <a id="mailtoLink" href="#" style="padding: 15px 30px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px; font-size: 18px; display: inline-block;">Открыть почту</a>
+    <script>
+        const link = document.getElementById('mailtoLink');
+        link.href = `mailto:${email}`;
+        link.textContent = `Отправить письмо на ${email}`;
     </script>
 </body>
 </html>

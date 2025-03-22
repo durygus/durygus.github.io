@@ -6,19 +6,14 @@
     <script>
         const params = new URLSearchParams(window.location.search);
         const email = params.get('email') || 'vadim@guslistov.com';
-        // Немедленно перенаправляем на mailto:
+        // Перенаправляем на mailto:
         window.location.href = `mailto:${email}`;
+        // Пытаемся закрыть текущую вкладку
+        window.close();
     </script>
 </head>
 <body>
-    <h2>Нажмите, чтобы открыть ваш почтовый клиент</h2>
-    <p>Если переход не произошёл, нажмите на ссылку ниже:</p>
-    <a id="mailtoLink" href="#" style="padding: 15px 30px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px; font-size: 18px; display: inline-block;">Открыть почту</a>
-    <script>
-        const link = document.getElementById('mailtoLink');
-        link.href = `mailto:${email}`;
-        link.textContent = `Отправить письмо на ${email}`;
-    </script>
+    <!-- Тело пустое, так как всё должно быть прозрачно -->
 </body>
 </html>
 

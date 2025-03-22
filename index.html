@@ -1,21 +1,4 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Открыть почтовый клиент</title>
-    <script>
-        const params = new URLSearchParams(window.location.search);
-        const email = params.get('email') || 'vadim@guslistov.com';
-        // Перенаправляем на mailto:
-        window.location.href = `mailto:${email}`;
-        // Пытаемся закрыть текущую вкладку
-        window.close();
-    </script>
-</head>
-<body>
-    <!-- Тело пустое, так как всё должно быть прозрачно -->
-</body>
-</html>
+<a href="mailto:vg@linki.systems">vg@linki.systems</a>
 
 <!--<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body><script>const p=new URLSearchParams(window.location.search);const e=p.get('email')||'test@example.com';const a=document.createElement('a');a.href=`mailto:${e}`;a.style.display='none';document.body.appendChild(a);a.click();</script></body></html>-->
 
